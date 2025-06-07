@@ -1,3 +1,4 @@
+
 export const logIn = async (dataBody) => {
     try {
         const response = await fetch('http://localhost:3000/users/login', {
@@ -47,12 +48,12 @@ export const saveCart= async (dataBody)=>{
     }
 }
 export const getCart=async()=>{
-    const token=localStorage.getItem('jwtToken');
+    const token=localStorage.setItem('jwtToken');
 
-    const response = await fetch(`http://localhost:3000/users/cart`,{
+    const response=fetch(`http://localhost:3000/users/cart`,{
         headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' }
     })
-    const data = await response.json();
+    const data= response.json();
     console.log("getCart",data);
     return data;
 }
