@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const persistedUser = localStorage.getItem('user')
-    if(persistedUser==undefined)
-      persistedUser="a";
+    if(!persistedUser)
+      persistedUser="";
    
 const initialState={
    name:persistedUser
