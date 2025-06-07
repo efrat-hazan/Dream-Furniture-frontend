@@ -1,0 +1,83 @@
+.policy-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 2rem;
+   direction: rtl;
+   font-family: var(--primary-font);
+ }
+ 
+ .policy-main-title {
+   color: var(--secondary-color);
+   text-align: center;
+   margin-bottom: 2rem;
+   font-size: 2.5rem;
+ }
+ 
+ .policy-welcome {
+   text-align: center;
+   font-size: 1.2rem;
+   color: #666;
+   margin-bottom: 3rem;
+ }
+ 
+ .policy-section {
+   margin-bottom: 3rem;
+   padding: 1.5rem;
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ .policy-section h2 {
+   color: var(--secondary-color);
+   margin-bottom: 1.5rem;
+   border-bottom: 2px solid var(--primary-color);
+   padding-bottom: 0.5rem;
+ }
+ 
+ .policy-list {
+   list-style-type: none;
+   padding: 0;
+ }
+ 
+ .policy-list li {
+   margin-bottom: 1rem;
+   padding-right: 1.5rem;
+   position: relative;
+ }
+ 
+ .policy-list li::before {
+   content: "•";
+   color: var(--secondary-color);
+   position: absolute;
+   right: 0;
+ }
+ 
+ .policy-content {
+   line-height: 1.6;
+ }
+ 
+ .policy-note {
+   background-color: #fff3cd;
+   border-right: 4px solid #ffc107;
+   padding: 1rem;
+   margin-top: 1rem;
+   border-radius: 4px;
+ }
+ 
+ @media (max-width: 768px) {
+   .policy-container {
+     padding: 1rem;
+   }
+   
+   .policy-main-title {
+     font-size: 2rem;
+   }
+   
+   .policy-section {
+     padding: 1rem;
+   }
+ }
+ li{
+   font-family: var(--primay-font);
+ }

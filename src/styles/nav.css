@@ -1,0 +1,78 @@
+ .pOfNav{
+   background-color: var(--secondary-color);
+  color: var(--primary-color);
+  text-align: center;
+  font-size: large;
+ }
+.navCo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.nav-icons-container {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-icons {
+  width: 30px;
+  height: auto;
+}
+.imageLogo{
+  /* justify-content:center; */
+  align-items: center;
+  width: 250px;
+  /* padding-right: 20px; */
+}
+
+#inputS{
+  margin-right: 20px;
+  width: 200px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--secondary-color);
+  outline: none;
+  font-family: var(--primay-font);
+}
+
+#inputS:focus {
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+@media (max-width: 1366px) { /* מחשבים ניידים עם מסך 15.6 אינץ' */
+  .imageLogo {
+    width: 200px; /* גודל מותאם */
+  }
+
+}
+
+@media (max-width: 1024px) { /* טאבלטים */
+  .imageLogo {
+    width: 150px; /* גודל מותאם */
+  }
+  .nav-icons {
+  width: 25px;
+  height: auto;
+}
+#inputS{
+   width: 170px;
+  height: 30px;
+}
+}
+
+@media (max-width: 768px) { /* טלפונים ניידים */
+  .imageLogo {
+    width: 100px; /* גודל מותאם */
+  }
+  .nav-icons {
+  width: 20px;
+  height: auto;
+}
+#inputS{
+   width: 150px;
+  height: 20px;
+}
+}

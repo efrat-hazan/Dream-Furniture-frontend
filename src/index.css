@@ -1,0 +1,35 @@
+/* globl style */
+:root {
+  --primary-color: #f8efef;
+  --secondary-color:#367e7f ;
+  --primay-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --gray-color:#f6f6f6;
+}
+h2{
+  font-family: var(--primay-font);
+}
+.navbar {
+  position: fixed; /* שורה זו תישאר קבועה למעלה */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.688); /*צבע רקע*/
+  /* padding: 10px 0; */
+  z-index: 1000; /* מבטיח שה-navbar תמיד יהיה מעל תוכן אחר */
+  box-shadow: 0 2px 40px rgba(54, 126, 127, 0.434); /* צל בצבע התואם ל-secondary-color */
+}
+.content {
+  margin-top: 13.5%;
+}
+dialog {
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  top: 45%;
+  right: 45%;
+}
+
+dialog::backdrop {
+  background: rgba(0,0,0,0.5);
+}

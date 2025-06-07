@@ -1,0 +1,326 @@
+ [
+     {
+       "id": "CH1",
+       "name": "כסא מעוצב ורונה",
+       "description": "כסא אוכל מרופד בבד קטיפה איכותי עם רגלי מתכת בגימור שחור מט",
+       "price": 499.99,
+       "discount": 15,
+       "image": "chairs/img1type1.png",
+       "categoryId": 1
+     },
+     {
+       "id": "CH2",
+       "name": "כסא בר מילאנו",
+       "description": "כסא בר יוקרתי בריפוד דמוי עור עם משענת גב ארגונומית",
+       "price": 599.99,
+       "discount": 10,
+       "image": "chairs/img2type1.jpg",
+       "categoryId": 1
+     },
+     {
+      "id": "CH3",
+      "name": "כסא פינת אוכל נאפולי",
+      "description": "כסא מעוצב בקווים נקיים עם ריפוד בד קטיפה ורגלי עץ מלא",
+      "price": 450.00,
+      "discount": 20,
+      "image": "chairs/img3type1.png",
+      "categoryId": 1
+    },
+    {
+      "id": "CH4",
+      "name": "כסא מטבח טוסקנה",
+      "description": "כסא מודרני עם מושב מרופד ומשענת גב מעוצבת לישיבה נוחה",
+      "price": 399.99,
+      "discount": 0,
+      "image": "chairs/img4type1.jpg",
+      "categoryId": 1
+  },
+  {
+      "id": "CH5",
+      "name": "כסא פינת אוכל פירנצה",
+      "description": "כסא אלגנטי בעיצוב איטלקי עם ריפוד בד משובח וגימור מושלם",
+      "price": 549.99,
+      "discount" : 12,
+      "image": "chairs/img5type1.png",
+      "categoryId": 1
+  },
+  {
+      "id": "CH6",
+      "name": "כסא אוכל רומא",
+      "description": "כסא יוקרתי עם ריפוד קטיפה ורגלי זהב בעיצוב קלאסי מודרני",
+      "price": 649.99,
+      "discount": 15,
+      "image": "chairs/img6type1.png",
+      "categoryId": 1
+  },
+  {
+      "id": "CH7",
+      "name": "כסא בר ונציה",
+      "description": "כסא בר מעוצב עם משענת גבוהה ומושב מרופד לישיבה ממושכת",
+      "price": 579.99,
+      "discount": 10,
+      "image": "chairs/img7type1.jpg",
+      "categoryId": 1
+  },
+  {
+      "id": "CH8",
+      "name": "כסא פינת אוכל סיינה",
+      "description": "כסא מודרני עם ריפוד איכותי ורגלי מתכת בצבע שחור מט",
+      "price": 489.99,
+      "discount": 18,
+      "image": "chairs/img8type1.png",
+      "categoryId": 1
+  },
+     {
+       "id": "AR1",
+       "name": "כורסת קטיפה מילאנו",
+       "description": "כורסת יחיד מעוצבת בריפוד קטיפה רך עם רגלי זהב",
+       "price": 1899.99,
+       "discount": 15,
+       "image": "armsofa/img1.png",
+       "categoryId": 2
+     },
+     {
+       "id": "AR2",
+       "name": "כורסת טלוויזיה רקליינר",
+       "description": "כורסת טלוויזיה מפנקת עם מנגנון הטיה חשמלי",
+       "price": 2499.99,
+       "discount": 10,
+       "image": "armsofa/img2.jpg",
+       "categoryId": 2
+     },{
+      "id": "AR3",
+      "name": "כורסת מעצבים ונציה",
+      "description": "כורסה מודרנית בעיצוב ייחודי עם משענת גב גבוהה",
+      "price": 1999.99,
+      "discount": 20,
+      "image": "armsofa/img3.jpg",
+      "categoryId": 2
+  },
+  {
+      "id": "AR4",
+      "name": "כורסת נדנדה פירנצה",
+      "description": "כורסת נדנדה מרופדת עם בסיס עץ מלא",
+      "price": 1699.99,
+      "discount": 12,
+      "image": "armsofa/img4.jpg",
+      "categoryId": 2
+  },
+  {
+      "id": "AR5",
+      "name": "כורסה מעוצבת רומא",
+      "description": "כורסת יחיד בסגנון רטרו עם ריפוד בד איכותי",
+      "price": 1599.99,
+      "discount": 15,
+      "image": "armsofa/img5.jpg",
+      "categoryId": 2
+  },
+  {
+      "id": "AR6",
+      "name": "כורסת פינוק נאפולי",
+      "description": "כורסה רחבה במיוחד עם כריות נוי תואמות",
+      "price": 2299.99,
+      "discount": 10,
+      "image": "armsofa/img6.png",
+      "categoryId": 2
+  },
+  {
+      "id": "AR7",
+      "name": "כורסת וינטג' טוסקנה",
+      "description": "כורסה קלאסית בסגנון וינטג' עם ריפוד מיוחד",
+      "price": 2099.99,
+      "discount": 8,
+      "image": "armsofa/img7.png",
+      "categoryId": 2
+  },
+  {
+      "id": "AR8",
+      "name": "כורסת הסבה סיינה",
+      "description": "כורסת מעצבים מודרנית עם בד איכותי דוחה כתמים",
+      "price": 1799.99,
+      "discount": 18,
+      "image": "armsofa/img8.png",
+      "categoryId": 2
+  },
+     {
+       "id": "SF1",
+       "name": "ספה תלת מושבית מילאנו",
+       "description": "ספת יוקרה מרופדת בבד קטיפה איכותי עם כריות נוי תואמות",
+       "price": 4999.99,
+       "discount": 15,
+       "image": "sofa/img1.jpg",
+       "categoryId": 3
+     },
+     {
+       "id": "SF2",
+       "name": "ספה פינתית ונציה",
+       "description": "ספה פינתית מרווחת בעיצוב מודרני עם שזלונג מובנה",
+       "price": 6999.99,
+       "discount": 10,
+       "image": "sofa/img2.png",
+       "categoryId": 3
+     },
+  {
+      "id": "SF3",
+      "name": "ספת סלון פירנצה",
+      "description": "ספה תלת מושבית מעוצבת בקווים נקיים עם ריפוד בד איכותי",
+      "price": 5499.99,
+      "discount": 20,
+      "image": "sofa/img3.png",
+      "categoryId": 3
+  },
+  {
+      "id": "SF4",
+      "name": "מערכת ישיבה רומא",
+      "description": "סט ספות מעוצב הכולל ספה תלת מושבית וספה דו מושבית",
+      "price": 8999.99,
+      "discount": 12,
+      "image": "sofa/img4.png",
+      "categoryId": 3
+  },
+  {
+      "id":"SF5" ,
+      "name": "ספה נפתחת טורינו",
+      "description": "ספה תלת מושבית נפתחת למיטה זוגית עם ארגז מצעים",
+      "price": 5999.99,
+      "discount": 15,
+      "image": "sofa/img5.jpg",
+      "categoryId": 3
+  },
+  {
+      "id": "SF6",
+      "name": "ספת שזלונג פאלרמו",
+      "description": "ספה פינתית מפוארת עם שזלונג מתכוונן וכריות נוי",
+      "price": 7499.99,
+      "discount": 10,
+      "image": "sofa/img6.png",
+      "categoryId": 3
+  },
+  {
+      "id": "SF7",
+      "name": "ספה מודולרית סיינה",
+      "description": "מערכת ישיבה מודולרית הניתנת להרכבה בהתאמה אישית",
+      "price": 9999.99,
+      "discount": 8,
+      "image": "sofa/img7.png",
+      "categoryId": 3
+  },
+  {
+      "id": "SF8",
+      "name": "ספת צ'סטר ברגמו",
+      "description": "ספה קלאסית בסגנון צ'סטרפילד עם ריפוד עור איכותי",
+      "price": 11999.99,
+      "discount": 18,
+      "image": "sofa/img8.png",
+      "categoryId": 3
+  },
+  {
+      "id": "SF9",
+      "name": "ספה פינתית נאפולי",
+      "description": "ספה פינתית גדולה עם שזלונג כפול ומשענות מתכווננות",
+      "price": 8499.99,
+      "discount": 15,
+      "image": "sofa/img9.png",
+      "categoryId": 3
+  },
+  {
+      "id": "SF10",
+      "name": "ספת פרימיום ורונה",
+      "description": "ספת יוקרה בעיצוב חדשני עם ריפוד משולב בד וקטיפה",
+      "price": 13999.99,
+      "discount": 10,
+      "image": "sofa/img10.jpg",
+      "categoryId": 3
+  },
+  {
+      "id": "S11",
+      "name": "ספה מעוצבת קאפרי",
+      "description": "ספה תלת מושבית בעיצוב עכשווי עם כריות גב מתכווננות",
+      "price": 6499.99,
+      "discount": 12,
+      "image": "sofa/img11.jpg",
+      "categoryId": 3
+  },
+     {
+       "id": "TB1",
+       "name": "שולחן אוכל ונציה",
+       "description": "שולחן אוכל מודרני עם רגלי מתכת שחורות ופלטה בגימור עץ טבעי",
+       "price": 2999.99,
+       "discount": 15,
+       "image": "table/img1.png",
+       "categoryId": 4
+     },
+     {
+       "id": "TB2",
+       "name": "שולחן סלון מילאנו",
+       "description": "שולחן סלון עגול עם רגלי זהב ומשטח שיש יוקרתי",
+       "price": 1899.99,
+       "discount": 10,
+       "image": "table/img2.jpg",
+       "categoryId": 4
+     },
+     {
+         "id": "TB3",
+         "name": "שולחן קפה פירנצה",
+         "description": "שולחן קפה מעוצב עם משטח זכוכית ובסיס מתכת מוזהב",
+         "price": 1499.99,
+         "discount": 20,
+         "image": "table/img3.jpg",
+         "categoryId": 4
+     },
+     {
+         "id": "TB4",
+         "name": "שולחן אוכל טוסקנה",
+         "description": "שולחן אוכל מלבני מעץ מלא עם רגלי מתכת מעוצבות",
+         "price": 3499.99,
+         "discount": 12,
+         "image": "table/img4.jpg",
+         "categoryId": 4
+     },
+     {
+         "id": "TB5",
+         "name": "שולחן צד רומא",
+         "description": "שולחן צד מודרני עם משטח זכוכית ורגלי מתכת מוצלבות",
+         "price": 899.99,
+         "discount": 15,
+         "image": "table/img5.png",
+         "categoryId": 4
+     },
+     {
+         "id": "TB6",
+         "name": "שולחן קפה נאפולי",
+         "description": "סט שולחנות קפה מדורגים בעיצוב גיאומטרי עם משטחי עץ",
+         "price": 1699.99,
+         "discount": 10,
+         "image": "table/img6.png",
+         "categoryId": 4
+     },
+     {
+         "id": "TB7",
+         "name": "שולחן אוכל סיינה",
+         "description": "שולחן אוכל יוקרתי עם פלטת שיש ורגלי מתכת מוזהבות",
+         "price": 4999.99,
+         "discount": 8,
+         "image": "table/img7.jpg",
+         "categoryId": 4
+     },
+     {
+         "id": "TB8",
+         "name": "שולחן סלון פאלרמו",
+         "description": "שולחן סלון מרובע עם משטח זכוכית ומסגרת מתכת שחורה",
+         "price": 2199.99,
+         "discount": 18,
+         "image": "table/img8.png",
+         "categoryId": 4
+     },
+     {
+         "id": "TB9",
+         "name": "שולחן קונסולה ברגמו",
+         "description": "שולחן קונסולה צר עם מדף תחתון ורגלי מתכת מעוצבות",
+         "price": 1299.99,
+         "discount": 15,
+         "image": "table/img9.jpg",
+         "categoryId": 4
+     }
+   ]
+  

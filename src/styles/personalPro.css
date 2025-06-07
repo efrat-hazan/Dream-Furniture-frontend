@@ -1,0 +1,56 @@
+.conteinerForItem{
+   display: grid;
+   grid-template-areas: "imageR detailsL";
+   grid-template-columns: 50% 50%;
+   grid-template-rows:  1fr; /* שינוי לauto כדי שהגובה יהיה דינמי */
+   height: auto; /* הגובה יקבע לפי התוכן */
+   min-height: calc(100vh - 200px); /* גובה מינימלי עם התחשבות בheader ופוטר */
+   margin-bottom: 50px;
+}
+.rightImg{
+   grid-area: imageR;
+   display: flex;          /* הוספה - לשיפור מיקום התמונה */
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+}
+.leftDetail{
+   grid-area: detailsL;
+   padding: 15%;
+}
+.imgForItem{
+   width: 500px;
+   height: auto;
+   border: solid rgba(185, 182, 182, 0.391);
+   border-radius: 20px;
+}
+#titleItem{
+   font-family: var(--primay-font);
+   font-size: 2.5rem;
+   color: rgb(166, 163, 163);
+}
+.sp{
+   color: rgb(166, 163, 163);
+   font-family: var(--primay-font);
+font-size: 1.7rem;
+}
+#btnAddToCart{
+   color: var(--primary-color);
+   width: 250px;
+   height: 50px;
+   border: none;
+   border-radius: 15px;
+   background-color: var(--secondary-color);
+   cursor: pointer;
+   margin-top: 30px;
+   transition: all 0.3s ease;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#btnAddToCart:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+   background-color:var(--primary-color);
+   color: var(--secondary-color);
+
+}

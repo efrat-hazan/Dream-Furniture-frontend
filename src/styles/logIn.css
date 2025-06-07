@@ -1,0 +1,21 @@
+.linkOps{
+   font-size: xx-large;
+  text-decoration: none;
+  margin: 40px;
+  color:gray;
+}
+
+.linkOps.active
+{
+  color: var(--secondary-color);
+}
+
+.inputs{
+   width: 150px;
+   height: 50px;
+   margin: 20px;
+   border-radius: 20px;
+   text-align: center;
+  color: var(--secondary-color);
+}
+

@@ -1,0 +1,39 @@
+
+let categories = [
+   {
+       id: 1,
+       name: "כסאות",
+       icon:"global/chair.svg",
+       path:"chair",
+       img:"global/imgChair.jpg"
+   },
+   {
+       id: 2,
+       name: "כורסאות",
+       icon:"global/armchairs.svg",
+       path:"armsofa",
+       img:"global/imgArmSofa.jpg"
+   },
+   {
+       id: 3,
+       name: "ספות",
+       icon:"global/sofa.svg",
+       path:"sofa",
+       img:"global/imgSofa.jpg"
+   },
+   {
+       id: 4,
+       name: "שולחנות",
+       icon:"global/table.svg",
+       path:"table",
+       img:"global/imgTable.jpg"
+   },
+   {
+      id: 5,
+      name: "יצור אישי",
+      icon:"global/PersonalProduction.svg",
+      path:"/personalCreation"
+  }
+];
+
+export default categories;

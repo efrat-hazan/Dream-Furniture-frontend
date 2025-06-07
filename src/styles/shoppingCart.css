@@ -1,0 +1,142 @@
+.containerShoppingCart {
+    /* פריסה שונה מהדף הראשי  */
+   display: grid;
+   grid-template-areas:"title title" "table1 payment";
+   grid-template-columns: 60% 40%;
+   grid-template-rows: auto 1fr; /* שינוי לauto כדי שהגובה יהיה דינמי */
+   height: auto; /* הגובה יקבע לפי התוכן */
+   min-height: calc(100vh - 200px); /* גובה מינימלי עם התחשבות בheader ופוטר */
+   margin-bottom: 50px;
+ }
+  .cart-container {
+   margin: 0 auto;
+   grid-area: table1;
+ }
+ .cart-item-image {
+   width: 100px;
+   height: 100px;
+   object-fit: cover;
+   border-radius: 4px;
+ }
+ .disTable{display: none;}
+ /* עיצוב מותאם לטבלה */
+ .MuiTableCell-root {
+   font-family: var(--primary-font) !important;
+ } 
+ .MuiTableContainer-root {
+   box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+ }
+ .MuiTableHead-root .MuiTableCell-root {
+  color: var(--secondary-color);
+   font-family: var(--primay-font);
+   font-weight: bold;
+   font-size: 1.5rem;
+ }
+ .delete-button {
+   transition: all 0.3s ease;
+ } 
+ .delete-button:hover {
+   color: var(--secondary-color);
+   transform: scale(1.1);
+ }
+ .MuiTableBody-root .MuiTableCell-root {
+   font-family: var(--primay-font);
+   font-size: 1.2rem;
+   /* color: var(--secondary-color); */
+   /* padding: 16px; */
+}
+.num-for-item{
+   width: 60px;
+   height: 30px;
+   border-radius: 8px;
+   background-color: rgba(225, 255, 255, 0);
+   text-align: center;
+   border-color: gray;  
+}
+
+.PaymentPart{
+   grid-area: payment ;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.titleForSh{
+   grid-area: title;
+   
+}
+
+.h2ForTitle{
+   text-align: right;
+   margin-bottom: 40px;
+   margin-right: 20%;
+   font-family: var(--primay-font);
+   color: var(--secondary-color);
+   animation: slideDown 1.2s ease-out forwards;
+}
+
+ @keyframes slideDown {
+   from {
+     opacity: 0;
+     transform: translateX(70px);
+   }
+   to {
+     opacity: 1;
+     transform: translateX(0);
+   }
+ }
+ .spanForSh{
+   font-family: var(--primay-font);
+   margin-bottom: 20px;
+   font-size: 2rem;
+   color: gray;
+
+ }
+ #linkToPay{
+   display: flex;
+   justify-content: center;
+   color: var(--primary-color);
+   width: 250px;
+   height: 50px;
+   border: none;
+   border-radius: 15px;
+   font-size: 1.2rem;
+   background-color: var(--secondary-color);
+   align-items: center;
+   transition: all 0.3s ease;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+
+ #linkToPay:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+   background-color:var(--primary-color);
+   color: var(--secondary-color);
+
+}
+
+.disabledLink {
+   color: var(--secondary-color);
+   opacity: 0.5;
+   cursor: not-allowed;
+   pointer-events: none;
+   background-color: #cccccc !important;
+ }
+.imgPay{
+  width: 5vw;
+  height: auto;
+   
+}
+.containerPay{
+  display: flex;
+   flex-wrap: wrap;  /* גורם לאלמנטים לרדת שורה כשנגמר המקום */
+   justify-content: center;  /* מרכז את האלמנטים */
+   gap: 40px; 
+}
+ 
+ .pForDialog{
+  font-family: var(--primay-font);
+  font-size: x-large;
+  color: gray;
+ }
+ 

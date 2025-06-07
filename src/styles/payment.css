@@ -1,0 +1,13 @@
+.css-1yrc8ca-MuiInputBase-input-MuiInput-input{
+   color: var(--secondary-color);
+   
+}
+.h2ForTitle{
+   text-align: right;
+   margin-bottom: 40px;
+   margin-right: 20%;
+   margin-top: 50px;
+   font-family: var(--primay-font);
+   color: var(--secondary-color);
+   animation: slideDown 1.2s ease-out forwards;
+}

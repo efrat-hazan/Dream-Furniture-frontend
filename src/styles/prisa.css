@@ -1,0 +1,60 @@
+.prica {
+   display: grid;
+   grid-template-areas: "nav" "headr" "article" "footer";
+   grid-template-columns: 100%;
+   grid-template-rows: 10% 10% 65% 15%;
+   width: 100%;
+   height: 100%;
+}
+
+nav {
+   margin-top: 0%;
+   grid-template-areas:"nav1 nav2 nav3";
+   grid-template-columns:15% 15% 70%;
+  grid-area: nav;
+  text-align: left;
+}
+
+header {
+   grid-area: header;
+   display: grid;
+   grid-template-areas: "h1 h2 h3 h4 h5" ;
+   grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+article {
+   grid-area: article;
+   text-align: center;
+}
+
+aside {
+   grid-area: aside;
+}
+
+footer {
+   grid-area: footer;
+   background-color: var(--gray-color);
+   display: grid;
+   grid-template-areas: "foot1 foot2" "end end";
+   grid-template-columns: 60% 40%;
+   grid-template-rows:90% 10%;
+}
+
+body {
+   /* background-size: 100%; */
+   direction: rtl;
+   font-size: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+a {
+   text-decoration: none;
+   font-family: var(--primay-font);
+   color: #000;
+}
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
