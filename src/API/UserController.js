@@ -1,4 +1,3 @@
-
 export const logIn = async (dataBody) => {
     try {
         const response = await fetch('http://localhost:3000/users/login', {
@@ -31,18 +30,32 @@ export const signUp = async (dataBody) => {
     }
 };
 
-export const saveCart= async (dataBody)=>{
-    const token= localStorage.getItem('jwtToken');
-    try{
-        const response=await fetch(`http://localhost:3000/users/cart`,{
-            method:"PUT",
-            headers : { 'Authorization': `Bearer ${token}`},
-             body: JSON.stringify(dataBody),
-        })
+export const saveCart = async (dataBody) => {
+    const token = localStorage.getItem('jwtToken');
+    console.log('Sending to server:', {
+        token: token ? 'exists' : 'missing',
+        data: dataBody
+    });
+    try {const response = await fetch(`http://localhost:3000/users/cart/add`, {
+            method: "POST",
+            headers: { 
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataBody),
+        });       
         const data = await response.json();
-        return data;
+        console.log('Server Response:', {
+            status: response.status,
+            data: data
+        });
+        
+        return {
+            data,
+            status: response.status
+        };
     }
-    catch(error){
+    catch (error) {
         console.error('Error in productCart:', error);
         throw error;
     }
@@ -54,6 +67,11 @@ export const getCart=async()=>{
         headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' }
     })
     const data=await response.json();
+   
+    
     console.log("getCart",data);
-    return data;
+    return {
+        cartItems:data.cart,
+        total:data.total
+    }
 }

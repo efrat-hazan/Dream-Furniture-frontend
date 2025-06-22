@@ -4,32 +4,50 @@ import allProducts from '../models/allProcducts';
 import categories from '../models/categories';
 import { Form, useLoaderData, useParams } from 'react-router-dom';
 import cartItems from '../models/cartItems';
-import { TextField } from '@mui/material';
+import { TextField, Alert, Snackbar } from '@mui/material';
+import { saveCart } from '../API/UserController';
 
 
 export default function PersonalProduction() {
   let { category, idd } = useParams();
 
- 
-  // const list=categories.find(item=> category===item.name);
-  // console.log(list)
-  // const item=allProducts[(list.id)-1][parseInt(idd)-1];
+  const [quan,satQuan]=useState(1);
+  const [openAlert, setOpenAlert] = useState(false);
+  const [alertType, setAlertType] = useState('success');
+  const [alertMessage, setAlertMessage] = useState('');
   
   const item=useLoaderData();
   if (!item) return <div>מוצר לא נמצא</div>;
-  const [quan,satQuan]=useState(1);
-  const addToCart=()=>{
+
+  const handleCloseAlert = () => {
+    setOpenAlert(false);
+  };
+
+  const addToCart=async()=>{
     const add={ 
-      id: item.id,
-      name:item.name,
-      description:item.description,
-      price:item.price,
+      id: item._id,
       quantity:quan,
-      discount:item.discount,
-      image:item.image
     }
-    cartItems.push(add);
-    alert("ggg");
+    try {
+      const response = await saveCart(add);
+    
+       console.log('Server Response:', {
+            status: response.status,
+            data: response.data
+        });
+      if (response.status === 200) {
+        setAlertType('success');
+        setAlertMessage('המוצר נוסף בהצלחה לסל הקניות');
+      } else {
+        setAlertType('error');
+        setAlertMessage(data.message);
+      }
+      setOpenAlert(true);
+    } catch (error) {
+      setAlertType('error');
+      setAlertMessage('אירעה שגיאה בהוספת המוצר לסל');
+      setOpenAlert(true);
+    }
   }
 console.log(`src/images/${item.image}`);
   return (
@@ -56,9 +74,18 @@ console.log(`src/images/${item.image}`);
           }}
         />
         <br /><br />
-        <button className='sp' onClick={addToCart} id='btnAddToCart'> הוספה לסל </button>
-      </Form>
+        <button className='sp' onClick={addToCart} id='btnAddToCart'> הוספה לסל </button>      </Form>
       </div>
+      <Snackbar 
+        open={openAlert} 
+        autoHideDuration={10000} 
+        onClose={handleCloseAlert}
+        anchorOrigin={{vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={handleCloseAlert} severity={alertType} sx={{ width: '100%' }}>
+          {alertMessage}
+        </Alert>
+      </Snackbar>
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/shoppingCart.css';
 import { NavLink } from 'react-router';
-import cartItems from '../models/cartItems';
+import {useLoaderData} from 'react-router-dom';
+// import cartItems from '../models/cartItems';
 import VisualPay from '../ComponentsOther/VisualPay';
 import CartTable from '../ComponentsOther/CartTable';
 import DialogDelete from '../ComponentsOther/DialogDelete';
@@ -9,7 +10,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { setSumShpping } from '../Store/slices/sumShopping';
 
 export default function ShoppingCart() {
-
+  console.log("1");
+  
+  let {cartItems, total} = useLoaderData();
+  console.log("2");
+  
+  if (!cartItems || Object.keys(cartItems).length === 0) {
+    cartItems = [];
+  }
   const [items, setItems] = useState(cartItems);
   const sum = useSelector(state => state.sumShopping.sum);
   const dispatch = useDispatch();
