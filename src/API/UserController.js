@@ -51,7 +51,7 @@ export const saveCart = async (dataBody) => {
         });
         
         return {
-            data,
+            data: data,
             status: response.status
         };
     }
@@ -73,5 +73,37 @@ export const getCart=async()=>{
     return {
         cartItems:data.cart,
         total:data.total
+    }
+}
+
+export const removeFromCart=async(id)=>{
+    const token=localStorage.getItem('jwtToken');
+
+    const response= await fetch(`http://localhost:3000/users/${id}`,{
+    method:"DELETE",
+    headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' }
+    })
+    const data=await response.json();
+    console.log("data",data);
+    
+    return{
+        cartItems: data.cart,
+        status:data.status,
+        message:data.message
+    }
+
+}
+
+export const decreaseCartItemQuantity= async(dataBody)=>{
+    const token=localStorage.getItem('jwtToken');
+    const response=await fetch(`http://localhost:3000/users/`,{
+    method:"DELETE",
+    headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' },
+    body: JSON.stringify(dataBody),
+    })
+    return{
+        cartItems: data.cart,
+        status:data.status,
+        message:data.message
     }
 }

@@ -8,6 +8,7 @@ import CartTable from '../ComponentsOther/CartTable';
 import DialogDelete from '../ComponentsOther/DialogDelete';
 import { useSelector, useDispatch } from "react-redux";
 import { setSumShpping } from '../Store/slices/sumShopping';
+import { removeFromCart } from '../API/UserController';
 
 export default function ShoppingCart() {
   console.log("1");
@@ -24,9 +25,9 @@ export default function ShoppingCart() {
   const [parId, setParId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
-  const deleteItem = (id) => {
-    const newItems = items.filter(item => item.id !== id);
-    setItems(newItems);
+  const deleteItem =async (id) => {
+    const response= await removeFromCart(id);
+    setItems(response.cartItems);
     setParId(0);
   }
 
