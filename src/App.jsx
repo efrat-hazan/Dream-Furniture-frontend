@@ -3,7 +3,7 @@ import { RouterProvider,createBrowserRouter,} from 'react-router-dom'
 import Home from './ComponentsPage/Home'
 import About from './ComponentsPage/About'
 import Products from './ComponentsPage/Products'
-import {LogIn,Log,Sing} from './ComponentsPage/LogIn'
+import {LogIn,Log,Sing, Disengagement} from './ComponentsPage/LogIn'
 import ShoppingCart from './ComponentsPage/ShoppingCart'
 import PersonalProduction from './ComponentsPage/PersonalProduction'
 import Payment from './ComponentsPage/Payment'
@@ -13,6 +13,9 @@ import Root from './ComponentsPage/Root'
 import {fetchItems, getByItemId} from './API/ProductsController.js'
 import { getList } from './API/CategoryController'
 import { getCart } from './API/UserController.js'
+import Orders from './ComponentsPage/Orders.jsx'
+import SpecificOrder from './ComponentsPage/SpecificOrder.jsx'
+import { getOrderById } from './API/OrderController.js'
 
 function App() {
   const router=createBrowserRouter([
@@ -50,10 +53,10 @@ function App() {
       element: <Payment />
     },
     {
-      path: 'personalProduction/:category/:idd',
+      path: 'personalProduction/:idd',
       element: <PersonalProduction />,
       loader:async({params})=>{
-        const product=await getByItemId(params.category, params.idd);
+        const product=await getByItemId( params.idd);
         return product;
       }
     },
@@ -105,9 +108,25 @@ function App() {
         {
           path: 'sing',
           element: <Sing />
+        },
+        {
+          path:'Disengagement',
+          element:<Disengagement />
         }
       ]
-    }
+    },
+    {
+      path:'orders',
+      element:<Orders />,
+    }, 
+    {
+      path:'specificOrder/:orderId',
+      element:<SpecificOrder />,
+      loader: async ({ params }) => {
+      const order = await getOrderById(params.orderId);
+      return  order ;
+      }
+    }  
   ]
     }      
     ])

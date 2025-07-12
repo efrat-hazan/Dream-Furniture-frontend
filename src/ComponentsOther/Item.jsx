@@ -8,7 +8,7 @@ export default function Item(props) {
     <>
     <div>
       <div className='divPageForItem'>
-      <NavLink to={`/personalProduction/${category.id}/${obg._id}`}>
+      <NavLink to={`/personalProduction/${obg._id}`}>
       <img src={"src/images/"+obg.image} className='itemForPageCategory' alt={obg.name}/><br />
             <p>{obg.name}</p> <br />
          </NavLink></div>

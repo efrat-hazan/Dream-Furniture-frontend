@@ -1,7 +1,7 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { Outlet,NavLink, Form, useNavigate} from 'react-router'
 import '../styles/logIn.css'
-import { TextField, Box, Button, Tooltip } from '@mui/material'
+import { TextField, Box, Button, Tooltip, Alert, Snackbar } from '@mui/material'
 import { logIn, signUp } from '../API/UserController'
 import { setUserName } from '../Store/slices/userName'
 import { useDispatch } from 'react-redux'
@@ -35,10 +35,21 @@ export  function LogIn() {
 //קומפוננטת האופציות
 export function Ops()
 {
+   const n= localStorage.getItem("user")
+   const [ifUser, setIfUser]=useState(n?true:false)
    return(
       <>
-         <NavLink className='linkOps' to='log'>התחברות</NavLink>
-         <NavLink className='linkOps' to='sing'>הרשמה</NavLink>
+          {ifUser ? (
+            <>
+            <NavLink className='linkOps' to='disengagement'>התנתקות</NavLink>
+            <NavLink className="linkOps" to='/orders'>הזמנות</NavLink>
+         </>
+         ) : (
+            <>
+               <NavLink className='linkOps' to='log'>התחברות</NavLink>
+               <NavLink className='linkOps' to='sing'>הרשמה</NavLink>
+            </>
+         )}
       </>
    )
    
@@ -61,7 +72,8 @@ export function Log()
          localStorage.setItem('jwtToken', data.token);//הכנסה של הטוקן
          console.log("token"+data.token);
          const userNa=dataBody.name;
-         localStorage.setItem('user',data.name);  
+         localStorage.setItem('user',userNa);
+         
          dispatch(setUserName(userNa))//redux הכנסה ל 
          alert(data.message);
          navigate("/");
@@ -133,3 +145,42 @@ export function Sing()
    )
 }
 
+export function Disengagement()
+{
+  const [open, setOpen] = useState(false);
+   const navigate = useNavigate();
+   const dispatch=useDispatch();
+   const handleLogout = () => {
+      const ans = confirm("תרצה לנתק את חשבונך מהאתר?");
+      if (ans) {
+         localStorage.removeItem('user');
+         localStorage.removeItem('jwtToken');
+         dispatch(setUserName(""))
+         setOpen(true);
+         setTimeout(() => {
+            setOpen(false);
+            navigate("/");
+         }, 2000); // 2 שניות ואז מעבר לדף הבית
+      }
+   };
+
+   // הפעלת ההתנתקות ברגע שהקומפוננטה נטענת
+   useEffect(() => {
+      handleLogout();
+      // eslint-disable-next-line
+   }, []);
+
+   const handleClose = (event, reason) => {
+      if (reason === 'clickaway') return;
+      setOpen(false);
+      navigate("/");
+   };
+
+   return (
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+            נותקת מהמערכת בהצלחה!
+         </Alert>
+      </Snackbar>
+   );
+}

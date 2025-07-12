@@ -7,9 +7,9 @@ import { useParams } from "react-router-dom"
     return data.products; // מחזירים את המוצרים
 };
 
-    export const getByItemId= async (category, id)=>{
+    export const getByItemId= async (id)=>{
 
-      const response= await fetch(`http://localhost:3000/products/${category}/${id}`)
+      const response= await fetch(`http://localhost:3000/products/product/${id}`)
       const data= await response.json();
       
       console.log('then getByItemId',data);
