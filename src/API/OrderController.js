@@ -1,5 +1,5 @@
 
-export const addOrder=async (dataBody) => {
+export const addOrder=async () => {
    
    const token = localStorage.getItem('jwtToken');
    try{
@@ -10,7 +10,7 @@ export const addOrder=async (dataBody) => {
             'Content-Type': 'application/json'
       }     
       });
-      const data = await response.json();
+      const data =  response.status;
       return data;
    } 
    catch (error)

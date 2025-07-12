@@ -50,6 +50,9 @@ export const orderDetailsSlice = createSlice({
       },
       setCvv(state, action) {
          state.cvv = action.payload
+      },
+      resetOrderDetails() {
+         return { ...initialState };
       }
    }
 })
@@ -64,7 +67,8 @@ export const {
    setNumCard,
    setYear,
    setMonth,
-   setCvv
+   setCvv, 
+   resetOrderDetails 
 } = orderDetailsSlice.actions
 
 export default orderDetailsSlice.reducer

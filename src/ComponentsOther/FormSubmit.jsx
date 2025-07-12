@@ -1,77 +1,99 @@
-import React,{useState} from 'react'
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import {setFirstName,setLastName,setAddress,setCity,
-setPhone,setZip,setEmail,}from "../Store/slices/orserDetails"
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setFirstName, setLastName, setAddress, setCity,
+  setPhone, setZip, setEmail
+} from "../Store/slices/orserDetails";
 
-export default function FormSubmit() {
-  const dispatch=useDispatch()
-   const st={//בשביל הכפתור
-      backgroundColor: 'var(--secondary-color)',
-      color: 'var(--primary-color)',
-      margin: 2,
-      '&:hover': {
-        backgroundColor: 'var(--primary-color)',
-        color: 'var(--secondary-color)',
-      }
-    }
-   const [formValid, setFormValid] = useState(false);
+export default function FormSubmit({ errors = {}, onValidate }) {
+  const dispatch = useDispatch();
+  const orderDetails = useSelector(state => state.orderDetails);
 
-   const handleSubmit = (event) => {
-     event.preventDefault();
-     const data = new FormData(event.currentTarget);
-   const formFields = {
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-      zipCode: data.get('zipCode'),
-      address: data.get('address'),
-      city: data.get('city'),
-      phone: data.get('phone'),
-      email: data.get('email')
-    };
+  // ולידציה פנימית
+  function validate() {
+    const newErrors = {};
+    if (!orderDetails.firstName) newErrors.firstName = 'שדה חובה';
+    if (!orderDetails.lastName) newErrors.lastName = 'שדה חובה';
+    if (!orderDetails.zip) newErrors.zip = 'שדה חובה';
+    if (!orderDetails.address) newErrors.address = 'שדה חובה';
+    if (!orderDetails.city) newErrors.city = 'שדה חובה';
+    if (!orderDetails.phone || !/^0\d{1,2}-?\d{7}$/.test(orderDetails.phone)) newErrors.phone = 'טלפון לא תקין';
+    if (!orderDetails.email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(orderDetails.email)) newErrors.email = 'מייל לא תקין';
+    if (onValidate) onValidate(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
 
-    console.log(formFields);
-  };
+  // נרשום את הפונקציה ל-window כדי ש-Payment תוכל לקרוא לה
+  useEffect(() => {
+    window.formSubmitValidate = validate;
+    return () => { delete window.formSubmitValidate; }
+  });
+
   return (
-    <>
-       <Box component="form"
-        sx={{ '& .MuiTextField-root': { m: 2, width: '50%' } }}
-        onSubmit={handleSubmit}>
-        <div>
-            
-          <TextField required label=" שם פרטי " name='firstName'
-          variant="standard" helperText="" color={')'}  />
-
-          <TextField required label=" שם משפחה " name='lastName'
-          variant="standard"  helperText="" color={')'}  />
-
-          <TextField label=" מדינה/ איזור " defaultValue=" ישראל "
-          variant="standard" color={'v'}
-          slotProps={{ input: {readOnly: true,},}} />
-
-          <TextField required label=" מיקוד  " name='zipCode'
-          variant="standard" helperText="" color={')'}  />
-
-          <TextField  required label=" כתובת  " name='address'
-          variant="standard" helperText="" color={')'}  />
-
-          <TextField required label=" עיר  " name='city'
-          variant="standard" helperText="" color={')'}  />
-
-          <TextField required type='tel' label=" טלפון " name='pone'
-         //  slotProps={{ pattern: "[0-9]{3}-[0-9]{7}",maxLength: 10 } }
-          variant="standard" helperText="" color={'v'}  />
-
-          <TextField required type='email' label=" מייל " name='email'
-          helperText=""  variant="standard" color={'a'}  />
-         <br />
-         <Button type="submit" variant="contained" sx={st}> שליחה </Button>
-
-         </div>
-
-      </Box>
-    </>
-  )
+    <Box sx={{ '& .MuiTextField-root': { m: 2, width: '50%' } }}>
+      <TextField
+        required label="שם פרטי" name='firstName'
+        variant="standard"
+        value={orderDetails.firstName}
+        onChange={e => dispatch(setFirstName(e.target.value))}
+        error={!!errors.firstName}
+        helperText={errors.firstName}
+      />
+      <TextField
+        required label="שם משפחה" name='lastName'
+        variant="standard"
+        value={orderDetails.lastName}
+        onChange={e => dispatch(setLastName(e.target.value))}
+        error={!!errors.lastName}
+        helperText={errors.lastName}
+      />
+      <TextField
+        label="מדינה/איזור" defaultValue="ישראל"
+        variant="standard"
+        InputProps={{ readOnly: true }}
+      />
+      <TextField
+        required label="מיקוד" name='zip'
+        variant="standard"
+        value={orderDetails.zip}
+        onChange={e => dispatch(setZip(e.target.value))}
+        error={!!errors.zip}
+        helperText={errors.zip}
+      />
+      <TextField
+        required label="כתובת" name='address'
+        variant="standard"
+        value={orderDetails.address}
+        onChange={e => dispatch(setAddress(e.target.value))}
+        error={!!errors.address}
+        helperText={errors.address}
+      />
+      <TextField
+        required label="עיר" name='city'
+        variant="standard"
+        value={orderDetails.city}
+        onChange={e => dispatch(setCity(e.target.value))}
+        error={!!errors.city}
+        helperText={errors.city}
+      />
+      <TextField
+        required type='tel' label="טלפון" name='phone'
+        variant="standard"
+        value={orderDetails.phone}
+        onChange={e => dispatch(setPhone(e.target.value))}
+        error={!!errors.phone}
+        helperText={errors.phone}
+      />
+      <TextField
+        required type='email' label="מייל" name='email'
+        variant="standard"
+        value={orderDetails.email}
+        onChange={e => dispatch(setEmail(e.target.value))}
+        error={!!errors.email}
+        helperText={errors.email}
+      />
+    </Box>
+  );
 }

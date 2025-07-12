@@ -65,7 +65,7 @@ export default function ShoppingCart() {
         <CartTable items={items} openDialog={openDialog} />
       </div>
       <div className='PaymentPart'> 
-        <span className='spanForSh'> לתשלום: ₪{sum} </span><br />
+        <span className='spanForSh'> לתשלום: ₪{sum.toFixed(2)} </span><br />
         <NavLink className={sum===0?'disabledLink':''}
           onClick={(e)=>sum === 0 && e.preventDefault()}
           id='linkToPay' to='/payment'> מעבר לקופה </NavLink> <br /> 
