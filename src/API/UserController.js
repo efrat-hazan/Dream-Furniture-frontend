@@ -1,3 +1,19 @@
+
+export const getAllUsers=async()=>{
+    const token=localStorage.getItem('jwtToken');
+
+    const response=await fetch(`http://localhost:3000/users/`,{
+        headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' }
+    })
+    const data=await response.json();
+   
+    
+    console.log("getUsers",data);
+    return data.users;
+}
+
+
+
 export const logIn = async (dataBody) => {
     try {
         const response = await fetch('http://localhost:3000/users/login', {

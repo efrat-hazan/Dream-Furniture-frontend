@@ -6,6 +6,14 @@ import { useSelector } from 'react-redux';
 export default function Nav() {
 
   const [searchQuery, setSearchQuery] = useState('');
+  const [role,setrole]=useState('');
+  const ro=localStorage.getItem('role');
+  if(ro==='maneger'){
+    setrole('maneger');
+    console.log(ro+"  "+role)
+  }
+      console.log(ro+" 2 ")
+      console.log(" 1 "+role)
   const navigate = useNavigate();
   const userName=useSelector(state=>state.userName.name);
   const handleSearch = (e) => {
@@ -25,6 +33,8 @@ export default function Nav() {
      <center> <NavLink to='/'><img className='imageLogo' src="src/images/global/logo2.png" alt="Logo" /></NavLink>
      </center>  
      <div className="nav-icons-container">
+      {console.log(ro)}
+        {ro=='manager'&&<NavLink to='/adminDashboard' >DASHBOARD</NavLink>}
         <p>{userName==""?"לא מחובר":userName}</p>
         <NavLink to='/logIn'><img className="nav-icons" src="src/images/global/person.svg" alt="person" /></NavLink>
         <NavLink to='/cart'><img className="nav-icons" src="src/images/global/shopping_cart.svg" alt="cart" /></NavLink>       

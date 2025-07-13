@@ -16,6 +16,7 @@ import { getCart } from './API/UserController.js'
 import Orders from './ComponentsPage/Orders.jsx'
 import SpecificOrder from './ComponentsPage/SpecificOrder.jsx'
 import { getOrderById } from './API/OrderController.js'
+import AdminDashboard from './ComponentsPage/ManagerPage.jsx'
 
 function App() {
   const router=createBrowserRouter([
@@ -126,6 +127,10 @@ function App() {
       const order = await getOrderById(params.orderId);
       return  order ;
       }
+    },
+    {
+      path:'adminDashboard',
+      element:<AdminDashboard />
     }  
   ]
     }      

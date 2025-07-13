@@ -73,6 +73,7 @@ export function Log()
          console.log("token"+data.token);
          const userNa=dataBody.name;
          localStorage.setItem('user',userNa);
+         localStorage.setItem("role",data.user.role);
          
          dispatch(setUserName(userNa))//redux הכנסה ל 
          alert(data.message);
@@ -155,6 +156,7 @@ export function Disengagement()
       if (ans) {
          localStorage.removeItem('user');
          localStorage.removeItem('jwtToken');
+         localStorage.removeItem('role');
          dispatch(setUserName(""))
          setOpen(true);
          setTimeout(() => {

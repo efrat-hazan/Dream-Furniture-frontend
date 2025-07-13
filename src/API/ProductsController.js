@@ -16,20 +16,34 @@ import { useParams } from "react-router-dom"
       return data.product;
     }
 
-    export const addProduct = (product) => {
-    fetch('http://localhost:3000/products/', {
+    export const addProduct =async (product) => {
+        console.log("I'm hear");
+        
+        const formData = new FormData();
+        formData.append("productId", product.productId);
+        formData.append("name", product.name);
+        formData.append("description", product.description);
+        formData.append("price", product.price);
+        formData.append("discount", product.discount);
+        formData.append("categoryId", product.categoryId);
+        formData.append("image", product.image); 
+        const token = localStorage.getItem('jwtToken');
+        try{
+        const response=await fetch('http://localhost:3000/products/', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
+            headers: { 
+                'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(product),
+            body: formData,
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+         const data = await response.json();
+         console.log(data);
+         
+         return data;
+         }
+         catch(e){
+             console.error('Error in addProduct:', error);
+        throw error;
+         }
 };
 

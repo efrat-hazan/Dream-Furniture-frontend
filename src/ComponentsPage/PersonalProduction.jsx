@@ -53,8 +53,8 @@ console.log(`src/images/${item.image}`);
   return (
     <div className='conteinerForItem'>
       <div className='rightImg'>
-    <img  src={`src/images/${item.image}`} alt={item.name} />
-        {/* <img className='imgForItem' src={"src/images/"+item.image} alt={item.name} /> */}
+    <img  src={`http://localhost:3000${item.imageUrl}`} alt={item.name} className='imgForItem'/>
+        {/* <img  src={"src/images/"+item.image} alt={item.name} /> */}
       </div>
       <div className='leftDetail'>
         <span  id='titleItem'>{item.name}</span><br /><br />

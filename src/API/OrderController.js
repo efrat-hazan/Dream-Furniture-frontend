@@ -64,7 +64,7 @@ export const getOrderByUserId= async ()=>{
 export const getAllOrders=async()=>{
     const token = localStorage.getItem('jwtToken');
      try{
-      const response=await fetch(`http://localhost:3000/orders/`, {
+      const response=await fetch(`http://localhost:3000/orders/all`, {
       headers: { 
          'Authorization': `Bearer ${token}`,
          'Content-Type': 'application/json'
