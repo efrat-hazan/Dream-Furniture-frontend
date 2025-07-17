@@ -1,10 +1,10 @@
 import { Box, InputLabel, MenuItem, Select, TextField, FormControl, FormControlLabel, Checkbox } from '@mui/material';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNumCard, setYear, setMonth, setCvv } from "../Store/slices/orserDetails";
 
 export default function CardPay({ errors = {}, onValidate }) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();// for redux
   const orderDetails = useSelector(state => state.orderDetails);
 
   // Credit card formatting function
@@ -19,7 +19,7 @@ export default function CardPay({ errors = {}, onValidate }) {
     return parts.length ? parts.join(' ') : value;
   };
 
-  // ולידציה פנימית
+  // Internal validation
   function validate() {
     const newErrors = {};
     if (!orderDetails.numCard || orderDetails.numCard.replace(/\D/g, '').length !== 16) newErrors.numCard = 'מספר אשראי לא תקין';
@@ -30,7 +30,7 @@ export default function CardPay({ errors = {}, onValidate }) {
     return Object.keys(newErrors).length === 0;
   }
 
-  // נרשום את הפונקציה ל-window כדי ש-Payment תוכל לקרוא לה
+ //So that the function can be called from payment
   useEffect(() => {
     window.cardPayValidate = validate;
     return () => { delete window.cardPayValidate; }
@@ -95,8 +95,6 @@ export default function CardPay({ errors = {}, onValidate }) {
         helperText={errors.cvv}
         inputProps={{ maxLength: 4 }}
       />
-      <br />
-      <FormControlLabel control={<Checkbox />} label="אפשרות הרכבה +20 ש" />
     </Box>
   );
 }

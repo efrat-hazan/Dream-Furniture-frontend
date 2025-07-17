@@ -9,56 +9,40 @@ import {setCategories} from "../Store/slices/ctegories"
 
 
 export default function Products(props) {
-//   const {idC}=props;
-//    let categories= useSelector(state=>state.categories.cate);
-//  async function  load () {
-//       const c=await getList();
-//       return c;
-//   }
-//    if(categories.length==0)
-//     categories= load();
-//   const list = useLoaderData(); // קבלת הנתונים מה-loader
-//   console.log(categories);
-//   console.log(idC);
 
   const { idC } = props;
   const [categories, setCategorie] = useState([]);
   const reduxCategories = useSelector(state => state.categories.cate);
   const list = useLoaderData();
   const dispatch=useDispatch();
-  const [loading, setLoading] = useState(true); // מצב טעינה
+  const [loading, setLoading] = useState(true); 
 
  
     useEffect(() => {
     const fetchCategories = async () => {
       try {
         if (reduxCategories.length === 0) {
-          // אם אין קטגוריות ברידקס, מביא מהשרת
+          // If there are no categories in Redux, fetches from the server
           const result = await getList();
           dispatch(setCategories(result));
           setCategorie(result);
         } else {
-          // אם יש קטגוריות ברידקס, משתמש בהן
+          // If there are Bridgex categories, uses them
           setCategorie(reduxCategories);
         }
       } catch (error) {
         console.error('Error fetching categories:', error);
       } finally {
-        setLoading(false); // סיים את מצב הטעינה
+        setLoading(false); 
       }
     };
 
     fetchCategories();
-  }, [reduxCategories, dispatch]); // התלותות
+  }, [reduxCategories, dispatch]); 
   if (loading) {
-    return <div>טעינה...</div>; // תוכל להחזיר קומפוננטת טעינה כאן
+    return <div>טעינה...</div>;
   }
-
-
-  console.log(categories)
-
   const category = categories.find(ca => Number(ca.id) === idC);
-  console.log(category);
   
   return (
     <>

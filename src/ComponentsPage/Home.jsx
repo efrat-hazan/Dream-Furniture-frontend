@@ -1,11 +1,9 @@
 import React, {  useState } from 'react'
 import { categoriesHome } from '../models/CategorierHome'
 import "../styles/home.css"
+
 export default function Home() {
-
-
   const [isHovered, setIsHovered] = useState([false,false,false,false]);
-  
   return (
     <>
     <div>
@@ -22,7 +20,7 @@ export default function Home() {
     <div className='image-container'>
     {categoriesHome.map((item, index)=>(
       <div 
-      key={index}
+      key={index}// Moving the category image wave and adding a mouseover function
       className="image-wrapper"
       onMouseEnter={() =>{let arr= [false,false,false,false];
         arr[index]=true;

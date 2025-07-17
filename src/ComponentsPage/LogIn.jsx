@@ -6,7 +6,7 @@ import { logIn, signUp } from '../API/UserController'
 import { setUserName } from '../Store/slices/userName'
 import { useDispatch } from 'react-redux'
 
-const st={backgroundColor: 'var(--secondary-color)',//בשביל הכפתורים
+const st={backgroundColor: 'var(--secondary-color)',//For the buttons
   color: 'var(--primary-color)',
   borderRadius: '8px',
   padding: '10px 20px',
@@ -20,22 +20,22 @@ export  function LogIn() {
   return (
     <>
             <center>
-               {/* אופציות התחברות או הרשמה */}
+              {/* Login or registration options */}
             <Ops></Ops><br /><br />
             </center>
 
             <center>
-               {/* איזה קומפוננטה תוצג */}
+               {/* Which component will be displayed*/}
             <Outlet></Outlet>
             </center>
 
     </>
   )
 }
-//קומפוננטת האופציות
+//Options component
 export function Ops()
 {
-   const n= localStorage.getItem("user")
+   const n= localStorage.getItem("user")//Whether the user is logged in or not
    const [ifUser, setIfUser]=useState(n?true:false)
    return(
       <>
@@ -54,22 +54,21 @@ export function Ops()
    )
    
 }
-//התחברות
 export function Log()
 {
    const [dataBody, setdata]=useState({name:"", password:""});
    const dispatch = useDispatch();
    const navigate=useNavigate();
   
-    const handleChange = (e) => {//פונקציה בשביל הסטייט
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setdata({ ...dataBody, [name]: value });
     };
-   const handleSubmit = async (e) => {//פונקצית שליחה
+   const handleSubmit = async (e) => {
       e.preventDefault(); 
-      const data= await logIn(dataBody);//פוקנקצית API
+      const data= await logIn(dataBody);
       try{
-         localStorage.setItem('jwtToken', data.token);//הכנסה של הטוקן
+         localStorage.setItem('jwtToken', data.token);//Token's income
          console.log("token"+data.token);
          const userNa=dataBody.name;
          localStorage.setItem('user',userNa);
@@ -91,7 +90,7 @@ export function Log()
          <Box  >
             <TextField  name='name' onChange={handleChange} label="שם משתמש" variant="outlined" color='black' /><br /> <br />
             <TextField  name="password" onChange={handleChange}  type="password" label="סיסמה " autoComplete="current-password" variant="outlined" color='black' /><br /> <br />
-            <Tooltip title="sing up" placement="top-start">
+            <Tooltip title="log in" placement="top-start">
             <Button sx={st} type='submit' className='inputs' id='btn'>  log in</Button>
             </Tooltip>
          </Box>
@@ -131,13 +130,11 @@ export function Sing()
       <>
       <Form onSubmit={handleSubmit}>
       <Box >
-            <TextField  name='name' onChange={handleChange} value={dataBody.name} label="שם משתמש" variant="outlined" color='black' /><br /> <br />
-            <TextField  name='password' onChange={handleChange} value={dataBody.password} type='password' label="סיסמה " autoComplete="new-password"  variant="outlined" color='black' /><br /> <br />
-            <TextField  name='email' onChange={handleChange} value={dataBody.email} type='email' label="email " variant="outlined" color='black' /><br /> <br />
-      </Box>
-       
+         <TextField  name='name' onChange={handleChange} value={dataBody.name} label="שם משתמש" variant="outlined" color='black' /><br /> <br />
+         <TextField  name='password' onChange={handleChange} value={dataBody.password} type='password' label="סיסמה " autoComplete="new-password"  variant="outlined" color='black' /><br /> <br />
+         <TextField  name='email' onChange={handleChange} value={dataBody.email} type='email' label="email " variant="outlined" color='black' /><br /> <br />
+      </Box>       
       <Tooltip  title="sing up" placement="top-start">
-      {/* <button className='inputs' id='btn'>sing up</button> */}
            <Button sx={st} type='submit' className='inputs' id='btn'>  sing up</Button>
           </Tooltip>
           <p> {text} </p>
@@ -162,11 +159,10 @@ export function Disengagement()
          setTimeout(() => {
             setOpen(false);
             navigate("/");
-         }, 2000); // 2 שניות ואז מעבר לדף הבית
+         }, 2000); 
       }
    };
 
-   // הפעלת ההתנתקות ברגע שהקומפוננטה נטענת
    useEffect(() => {
       handleLogout();
       // eslint-disable-next-line

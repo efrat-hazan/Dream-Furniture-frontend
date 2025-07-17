@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 export default function Item(props) {
-  const {obg, category}=props;
+  const {obg}=props;
 
   return (
     <>

@@ -25,13 +25,13 @@ export default function Payment() {
       },
    }
 
-  // פונקציות שמקבלות הודעות שגיאה מהקומפוננטות
+  // Functions that receive error messages from components
   const handleFormErrors = (errors) => setFormErrors(errors);
   const handleCardErrors = (errors) => setCardErrors(errors);
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    // נבצע ולידציה בכל קומפוננטה
+    // Performing validation on each component
     const formValid = window.formSubmitValidate();
     const cardValid = window.cardPayValidate();
     if (formValid && cardValid) {

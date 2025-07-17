@@ -21,58 +21,33 @@
   height: auto;
 }
 .imageLogo{
-  /* justify-content:center; */
   align-items: center;
   width: 250px;
-  /* padding-right: 20px; */
 }
 
-#inputS{
-  margin-right: 20px;
-  width: 200px;
-  height: 40px;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid var(--secondary-color);
-  outline: none;
-  font-family: var(--primay-font);
-}
-
-#inputS:focus {
-  border-bottom: 2px solid var(--secondary-color);
-}
-
-@media (max-width: 1366px) { /* מחשבים ניידים עם מסך 15.6 אינץ' */
+@media (max-width: 1366px) { /*Laptops with 15.6-inch screens */
   .imageLogo {
-    width: 200px; /* גודל מותאם */
+    width: 200px; /*Customized size*/
   }
 
 }
 
-@media (max-width: 1024px) { /* טאבלטים */
+@media (max-width: 1024px) { /* Tablets */
   .imageLogo {
-    width: 150px; /* גודל מותאם */
+    width: 150px; /*Customized size*/
   }
   .nav-icons {
   width: 25px;
   height: auto;
 }
-#inputS{
-   width: 170px;
-  height: 30px;
-}
 }
 
-@media (max-width: 768px) { /* טלפונים ניידים */
+@media (max-width: 768px) { /*Mobile phones*/
   .imageLogo {
-    width: 100px; /* גודל מותאם */
+    width: 100px; /*Customized size*/
   }
   .nav-icons {
   width: 20px;
   height: auto;
-}
-#inputS{
-   width: 150px;
-  height: 20px;
 }
 }

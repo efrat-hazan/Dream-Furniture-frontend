@@ -9,14 +9,13 @@ h2{
   font-family: var(--primay-font);
 }
 .navbar {
-  position: fixed; /* שורה זו תישאר קבועה למעלה */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.688); /*צבע רקע*/
-  /* padding: 10px 0; */
-  z-index: 1000; /* מבטיח שה-navbar תמיד יהיה מעל תוכן אחר */
-  box-shadow: 0 2px 40px rgba(54, 126, 127, 0.434); /* צל בצבע התואם ל-secondary-color */
+  background-color: rgba(255, 255, 255, 0.688); 
+  z-index: 1000; 
+  box-shadow: 0 2px 40px rgba(54, 126, 127, 0.434); 
 }
 .content {
   margin-top: 13.5%;

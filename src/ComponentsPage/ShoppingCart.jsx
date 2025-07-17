@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import '../styles/shoppingCart.css';
 import { NavLink } from 'react-router';
 import {useLoaderData} from 'react-router-dom';
-// import cartItems from '../models/cartItems';
 import VisualPay from '../ComponentsOther/VisualPay';
 import CartTable from '../ComponentsOther/CartTable';
 import DialogDelete from '../ComponentsOther/DialogDelete';
@@ -13,8 +12,8 @@ import { removeFromCart } from '../API/UserController';
 export default function ShoppingCart() {
   console.log("1");
   
-  let {cartItems, total} = useLoaderData();
-  console.log("2");
+  let {cartItems} = useLoaderData();
+
   
   if (!cartItems || Object.keys(cartItems).length === 0) {
     cartItems = [];
@@ -40,8 +39,6 @@ export default function ShoppingCart() {
 
   const openDialog = (id) => {
     setParId(id);
-    const dialog = document.querySelector("dialog");
-    dialog.showModal(); 
     setIsOpen(true);
   }
   const closeDialog1 = () => {
@@ -50,8 +47,6 @@ export default function ShoppingCart() {
   }
   
   const closeDialog = () => {
-    const dialog = document.querySelector("dialog");
-    dialog.close();
     setIsOpen(false);
   }
   
@@ -71,7 +66,7 @@ export default function ShoppingCart() {
           id='linkToPay' to='/payment'> מעבר לקופה </NavLink> <br /> 
         <VisualPay></VisualPay>
       </div>
-      <DialogDelete closeDialog={closeDialog} closeDialog1={closeDialog1} />
+      <DialogDelete open={isOpen} closeDialog={closeDialog} closeDialog1={closeDialog1} />
     </div>
   );
 }

@@ -3,19 +3,18 @@ import PNav from '../ComponentsOther/PNav'
 import '../styles/nav.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-export default function Nav() {
+import { TextField } from '@mui/material';
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [role,setrole]=useState('');
+export default function Nav() {
+  const [searchQuery, setSearchQuery] = useState('');//for search
+  const [role,setrole]=useState(''); //for role if is manager
   const ro=localStorage.getItem('role');
+
   if(ro==='maneger'){
     setrole('maneger');
-    console.log(ro+"  "+role)
-  }
-      console.log(ro+" 2 ")
-      console.log(" 1 "+role)
+  }   
   const navigate = useNavigate();
-  const userName=useSelector(state=>state.userName.name);
+  const userName=useSelector(state=>state.userName.name);//Getting the name from redux
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -24,23 +23,25 @@ export default function Nav() {
   };
   return (
     <>
-    <nav>
-      <PNav></PNav>
-    <div className='navCo'>
-      <div><form onSubmit={handleSearch}> <input id='inputS' type="search" onChange={(e) => setSearchQuery(e.target.value)}
- name="s" placeholder=' מה לחפש? ' /></form>
-        </div> {/* div ריק בצד ימין לאיזון */}
-     <center> <NavLink to='/'><img className='imageLogo' src="src/images/global/logo2.png" alt="Logo" /></NavLink>
-     </center>  
-     <div className="nav-icons-container">
-      {console.log(ro)}
-        {ro=='manager'&&<NavLink to='/adminDashboard' >DASHBOARD</NavLink>}
-        <p>{userName==""?"לא מחובר":userName}</p>
-        <NavLink to='/logIn'><img className="nav-icons" src="src/images/global/person.svg" alt="person" /></NavLink>
-        <NavLink to='/cart'><img className="nav-icons" src="src/images/global/shopping_cart.svg" alt="cart" /></NavLink>       
-      </div>
-    </div>
-    </nav>
+      <nav>
+        <PNav></PNav>
+        <div className='navCo'>
+          <div>
+            <form onSubmit={handleSearch}> 
+              <TextField id="standard-search" label="מה לחפש?"
+              type="search" variant="standard" onChange={(e) => setSearchQuery(e.target.value)} />
+            </form>
+          </div> 
+          <center> <NavLink to='/'><img className='imageLogo' src="src/images/global/logo2.png" alt="Logo" /></NavLink></center>  
+        
+          <div className="nav-icons-container"> {/*link to manager and name for user*/}         
+            {ro=='manager'&&<NavLink to='/adminDashboard' >DASHBOARD</NavLink>}
+            <p>{userName==""?"לא מחובר":userName}</p>
+            <NavLink to='/logIn'><img className="nav-icons" src="src/images/global/person.svg" alt="person" /></NavLink>
+            <NavLink to='/cart'><img className="nav-icons" src="src/images/global/shopping_cart.svg" alt="cart" /></NavLink>       
+          </div>
+        </div>
+      </nav>
     </>
   )
 } 

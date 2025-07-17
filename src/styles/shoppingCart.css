@@ -1,11 +1,10 @@
 .containerShoppingCart {
-    /* פריסה שונה מהדף הראשי  */
    display: grid;
    grid-template-areas:"title title" "table1 payment";
    grid-template-columns: 60% 40%;
-   grid-template-rows: auto 1fr; /* שינוי לauto כדי שהגובה יהיה דינמי */
-   height: auto; /* הגובה יקבע לפי התוכן */
-   min-height: calc(100vh - 200px); /* גובה מינימלי עם התחשבות בheader ופוטר */
+   grid-template-rows: auto 1fr; 
+   height: auto; 
+   min-height: calc(100vh - 200px); 
    margin-bottom: 50px;
  }
   .cart-container {
@@ -19,7 +18,7 @@
    border-radius: 4px;
  }
  .disTable{display: none;}
- /* עיצוב מותאם לטבלה */
+
  .MuiTableCell-root {
    font-family: var(--primary-font) !important;
  } 
@@ -42,8 +41,7 @@
  .MuiTableBody-root .MuiTableCell-root {
    font-family: var(--primay-font);
    font-size: 1.2rem;
-   /* color: var(--secondary-color); */
-   /* padding: 16px; */
+   
 }
 .num-for-item{
    width: 60px;
@@ -129,8 +127,8 @@
 }
 .containerPay{
   display: flex;
-   flex-wrap: wrap;  /* גורם לאלמנטים לרדת שורה כשנגמר המקום */
-   justify-content: center;  /* מרכז את האלמנטים */
+   flex-wrap: wrap;  
+   justify-content: center;  
    gap: 40px; 
 }
  

@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
-import { Paper, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Divider, Box, CircularProgress, Chip } from '@mui/material';
+import { Paper, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Divider, Box, CircularProgress } from '@mui/material';
 import { getOrderByUserId } from '../API/OrderController';
-import { Outlet,NavLink, Form, useNavigate} from 'react-router'
+import { NavLink} from 'react-router'
 export default function Orders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchOrders = async () => {
-      try {
-        const data = await getOrderByUserId();
-        setOrders(data || []);
-      } catch (err) {
-        setOrders([]);
-      } finally {
-        setLoading(false);
-      }
+    try {
+      const data = await getOrderByUserId();
+      setOrders(data || []);
+    } catch (err) {
+      setOrders([]);
+    } finally {
+      setLoading(false);
+    }
     };
     fetchOrders();
   }, []);

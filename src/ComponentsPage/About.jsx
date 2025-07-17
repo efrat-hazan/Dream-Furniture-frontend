@@ -3,33 +3,22 @@ import '../styles/about.css'
 
   
   export default function About() {
-    // useEffect רץ אחרי שהקומפוננטה מתרנדרת
-    useEffect(() => {
-      // יוצר אובייקט שעוקב אחרי אלמנטים ומזהה מתי הם נראים במסך
-      const observer = new IntersectionObserver((entries) => {
-        // עובר על כל האלמנטים שנצפים
-        entries.forEach(entry => {
-          // בודק אם האלמנט נראה במסך
-          if (entry.isIntersecting) {
-            // אם כן, מוסיף לו את הקלאס animate שמפעיל את האנימציה
-            entry.target.classList.add('animate');
-          }
-        });
-      }, { 
-        // threshold קובע כמה אחוז מהאלמנט צריך להיות נראה כדי להפעיל את האנימציה
-        // 0.1 = 10% מהאלמנט
-        threshold: 0.1 
+    
+    useEffect(() => {//A function that brings up the titles while scrolling    
+      const observer = new IntersectionObserver((entries) => {       
+      entries.forEach(entry => {        
+      if (entry.isIntersecting) {            
+        entry.target.classList.add('animate');
+      }
       });
-  
-      // מוצא את כל האלמנטים עם הקלאס h2About ומתחיל לעקוב אחריהם
+      }, {         
+        threshold: 0.1 
+      });  
       document.querySelectorAll('.h2About').forEach((h2) => {
         observer.observe(h2);
       });
-  
-      // פונקציית ניקוי שרצה כשהקומפוננטה מתפרקת
-      // מפסיקה את המעקב אחרי האלמנטים כדי למנוע דליפות זיכרון
       return () => observer.disconnect();
-    }, []); // מערך ריק אומר שה-useEffect ירוץ רק פעם אחת כשהקומפוננטה נטענת
+    }, []); 
   
     
   return (

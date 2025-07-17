@@ -11,7 +11,7 @@ export default function FormSubmit({ errors = {}, onValidate }) {
   const dispatch = useDispatch();
   const orderDetails = useSelector(state => state.orderDetails);
 
-  // ולידציה פנימית
+  // Internal validation
   function validate() {
     const newErrors = {};
     if (!orderDetails.firstName) newErrors.firstName = 'שדה חובה';
@@ -25,7 +25,7 @@ export default function FormSubmit({ errors = {}, onValidate }) {
     return Object.keys(newErrors).length === 0;
   }
 
-  // נרשום את הפונקציה ל-window כדי ש-Payment תוכל לקרוא לה
+  // List the function for window so that Payment can call it
   useEffect(() => {
     window.formSubmitValidate = validate;
     return () => { delete window.formSubmitValidate; }

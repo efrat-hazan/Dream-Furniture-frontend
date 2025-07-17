@@ -32,10 +32,10 @@ export default function Footer() {
                 <NavLink className='navLink' to='/policy' >מדיניות משלוחים</NavLink><br />
                 </Grid>
                 <Grid item>
-                <NavLink className='navLink' > החזרות </NavLink><br />
+                <NavLink className='navLink' to='/returnPolicy' > החזרות </NavLink><br />
                 </Grid>
                 <Grid item>
-                <NavLink className='navLink' > תקנון פרטיות </NavLink><br />
+                <NavLink className='navLink' to='privacyPolicy' > תקנון פרטיות </NavLink><br />
                 </Grid>
                 <Grid item>
                     <div >

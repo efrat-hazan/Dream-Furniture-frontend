@@ -57,7 +57,7 @@ export default function CartTable({items, openDialog}) {
             <TableRow key={item.id}>
               <TableCell>
                 <img 
-                  src={"src/images/"+item.image} 
+                  src={`http://localhost:3000${item.image}`} 
                   alt={item.name} 
                   className="cart-item-image" 
                 />

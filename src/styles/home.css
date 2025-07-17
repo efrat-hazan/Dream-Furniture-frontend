@@ -6,13 +6,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-
 }
 #divSpan{
   height: 105px;
   width: 210px;
-   position: relative;
-   
+   position: relative; 
 }
 #spanHcolor1{
  font-size: 50px;
@@ -28,20 +26,17 @@
  font-size: 50px;
  color: gray;
  font-family: var(--primay-font);
-  position: absolute;  /* חסר קודם */
+  position: absolute;  
   display: block; 
- top: 5px; /* מרחק מלמעלה */
-  right: 5px; /* מרחק מימין */
-  z-index: 1; /* שכבה תחתונה */
+ top: 5px; 
+  right: 5px; 
+  z-index: 1; 
 }
 .image-container {
-  /*width: 300px; /* גודל התמונה 
-  height: 300px; /* גובה התמונה 
-  position: relative;*/
    display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* יוצר טורים דינמיים */
-  gap: 20px;        /* מרווח בין התמונות */
-  padding: 20px;    /* ריפוד מסביב */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 20px;       
+  padding: 20px;   
   
 }
 .image-wrapper {
@@ -54,8 +49,8 @@
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  object-fit: cover; /* שומר על פרופורציות של התמונה */
-  transition: all 0.3s ease; /* הוספת אנימציה רכה */
+  object-fit: cover; 
+  transition: all 0.3s ease; 
 }
 
 .pForHome{

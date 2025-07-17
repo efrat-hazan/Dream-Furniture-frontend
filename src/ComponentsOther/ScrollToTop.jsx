@@ -6,7 +6,6 @@ export default function ScrollToTop() {
   const navigationType = useNavigationType();
 
   useEffect(() => {
-    // כשמשתמשים ב-createBrowserRouter, רוצים לגלול למעלה רק בניווט קדימה
     if (navigationType !== 'POP') {
       window.scrollTo(0, 0);
     }

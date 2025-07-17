@@ -27,7 +27,7 @@ export default function SpecificOrder() {
     severity: data.status === 200 ? 'success' : 'error'
   });
   if (data.status === 200) {
-    setOrderStatus(true); // עדכון הסטטוס בלוקאלי
+    setOrderStatus(true);
   }
   setTimeout(() => setSnackbar({ ...snackbar, open: false }), 10000);
 };

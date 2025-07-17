@@ -1,4 +1,4 @@
-import './App.css'
+
 import { RouterProvider,createBrowserRouter,} from 'react-router-dom'
 import Home from './ComponentsPage/Home'
 import About from './ComponentsPage/About'
@@ -17,6 +17,8 @@ import Orders from './ComponentsPage/Orders.jsx'
 import SpecificOrder from './ComponentsPage/SpecificOrder.jsx'
 import { getOrderById } from './API/OrderController.js'
 import AdminDashboard from './ComponentsPage/ManagerPage.jsx'
+import ReturnPolicy from './ComponentsPage/ReturnPolicy.jsx'
+import PrivacyPolicy from './ComponentsPage/PrivacyPolicy.jsx'
 
 function App() {
   const router=createBrowserRouter([
@@ -131,6 +133,14 @@ function App() {
     {
       path:'adminDashboard',
       element:<AdminDashboard />
+    },
+    {
+      path:'returnPolicy',
+      element:<ReturnPolicy/>
+    } ,
+    {
+      path:'privacyPolicy',
+      element:<PrivacyPolicy/>
     }  
   ]
     }      

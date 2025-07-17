@@ -4,43 +4,33 @@
    align-items: center; 
    margin-right: 20px
 }
-
 .category-link img {
    width: 40px;
    height: 40px;
    object-fit: contain;
    transition: all 0.3s ease;
 }
-
 .category-link img:hover {
    
    transform: translateY(-4px);
 }
-
-/* אם רוצים להוסיף סטיל למצב אקטיבי */
 .category-link.active {
    color: var(--secondary-color);
    font-weight: bold;
 }
-
-.iconsForHeader.active{
-   background-color:#367e7f8f ;
-   border-radius: 50px;
-}
-
-@media (max-width: 1366px) { /* מחשבים ניידים עם מסך 15.6 אינץ' */
+@media (max-width: 1366px) { /* Laptops with 15.6-inch screens */
   
 
 }
 
-@media (max-width: 1024px) { /* טאבלטים */
+@media (max-width: 1024px) { /* Tablets */
   .category-link img{
    width: 25px;
    height: 25px;
   }
 }
 
-@media (max-width: 768px) { /* טלפונים ניידים */
+@media (max-width: 768px) { /*Mobile phones*/
   .category-link img{
    width: 18px;
    height: 18px;

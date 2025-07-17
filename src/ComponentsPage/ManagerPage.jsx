@@ -52,8 +52,6 @@ useEffect(() => {
 }, [orders]); // מאזין לשינויים ב־orders
   return (
    <>
-   
-   <p>{numbers}</p>
   <Typography variant="h2" sx={{color:"#888", }}  gutterBottom>DASHBOARD </Typography>
 
    <Box  justifyContent="center"   display="flex"

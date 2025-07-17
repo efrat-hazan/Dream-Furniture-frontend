@@ -9,9 +9,9 @@ import {setCategories} from "../Store/slices/ctegories"
 
 export default function Root() {
   const dispatch = useDispatch();
-  const { categories } = useLoaderData(); // מקבל את הנתונים מהלודר
+  const { categories } = useLoaderData(); // get the data from loader
 
-  useEffect(() => {
+  useEffect(() => {//Check if there is data in redux and if not get it from the API
     if (categories && categories.length > 0) {
       console.log('Categories from loader:', categories);
       dispatch(setCategories(categories));
@@ -20,15 +20,14 @@ export default function Root() {
 
   return (
     <>
-    <ScrollToTop></ScrollToTop>
+      <ScrollToTop></ScrollToTop>
       <div className='navbar'>
         <Nav></Nav>
         <Header></Header>
       </div>
       <article className='content'>
-      <Outlet/>
+        <Outlet/>
       </article>
-      
       <Footer></Footer>
     </>
   )

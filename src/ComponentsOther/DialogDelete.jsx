@@ -1,21 +1,41 @@
-import React from 'react';
-import Button from '@mui/material/Button';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography} from '@mui/material';
 
-export default function DialogDelete({closeDialog, closeDialog1}) {
-   const st={backgroundColor: 'var(--secondary-color)',
-      color: 'var(--primary-color)',
-      borderRadius: '8px',
-      padding: '10px 20px',margin:'10px',
-      '&:hover': {
-        backgroundColor: 'var(--primary-color)',
-        color: 'var(--secondary-color)',
-        transform: 'translateY(-2px)',
-        transition: 'all 0.3s ease'}};
+export default function DialogDelete({ open, closeDialog, closeDialog1 }) {
   return (
-    <dialog>
-      <p className='pForDialog'> תרצה למחוק את הפריט מהסל קניות </p>
-      <Button sx={st} variant="contained" size="small" onClick={closeDialog1} >  אישור </Button>
-      <Button sx={st} variant="contained" size="small" onClick={closeDialog} >  ביטול </Button> 
-    </dialog>
+    <Dialog
+      open={open}
+      onClose={closeDialog}
+      aria-labelledby="delete-dialog-title"
+      aria-describedby="delete-dialog-description"
+    >
+      <DialogTitle id="delete-dialog-title">
+        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+          מחיקת פריט מהסל
+        </Typography>
+      </DialogTitle>
+
+      <DialogContent>
+        <Typography id="delete-dialog-description" sx={{ mt: 1 }}>
+          האם אתה בטוח שברצונך למחוק את הפריט מהסל?
+        </Typography>
+      </DialogContent>
+
+      <DialogActions>
+        <Button
+          onClick={closeDialog1}
+          variant="contained"
+          color="error"
+        >
+          אישור
+        </Button>
+        <Button
+          onClick={closeDialog}
+          variant="outlined"
+          color="primary"
+        >
+          ביטול
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 }
