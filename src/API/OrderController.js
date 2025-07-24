@@ -3,7 +3,7 @@ export const addOrder=async () => {
    
    const token = localStorage.getItem('jwtToken');
    try{
-      const response=await fetch(`http://localhost:3000/orders/`, {
+      const response=await fetch(`https://dream-furniture-api-backend.onrender.com/orders/`, {
         method: 'POST',
          headers: { 
             'Authorization': `Bearer ${token}`,
@@ -26,7 +26,7 @@ export const addOrder=async () => {
 export const getOrderById= async (body)=>{
    const token = localStorage.getItem('jwtToken');
    try{
-      const response=await fetch(`http://localhost:3000/orders/${body}`, {
+      const response=await fetch(`https://dream-furniture-api-backend.onrender.com/orders/${body}`, {
       headers: { 
          'Authorization': `Bearer ${token}`,
          'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export const getOrderById= async (body)=>{
 export const getOrderByUserId= async ()=>{
    const token = localStorage.getItem('jwtToken');
    try{
-      const response=await fetch(`http://localhost:3000/orders/`, {
+      const response=await fetch(`https://dream-furniture-api-backend.onrender.com/orders/`, {
       headers: { 
          'Authorization': `Bearer ${token}`,
          'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ export const getOrderByUserId= async ()=>{
 export const getAllOrders=async()=>{
     const token = localStorage.getItem('jwtToken');
      try{
-      const response=await fetch(`http://localhost:3000/orders/all`, {
+      const response=await fetch(`https://dream-furniture-api-backend.onrender.com/orders/all`, {
       headers: { 
          'Authorization': `Bearer ${token}`,
          'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ export const getAllOrders=async()=>{
 export const updateOrderStatus=async(orderId)=>{
     const token = localStorage.getItem('jwtToken');
     try{
-      const response=await fetch(`http://localhost:3000/orders/${orderId}`, {
+      const response=await fetch(`https://dream-furniture-api-backend.onrender.com/orders/${orderId}`, {
       method:"PUT",
       headers: { 
          'Authorization': `Bearer ${token}`,

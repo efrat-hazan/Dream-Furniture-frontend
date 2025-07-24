@@ -2,7 +2,7 @@
 export const getAllUsers=async()=>{
     const token=localStorage.getItem('jwtToken');
 
-    const response=await fetch(`http://localhost:3000/users/`,{
+    const response=await fetch(`https://dream-furniture-api-backend.onrender.com/users/`,{
         headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' }
     })
     const data=await response.json();
@@ -16,14 +16,14 @@ export const getAllUsers=async()=>{
 
 export const logIn = async (dataBody) => {
     try {
-        const response = await fetch('http://localhost:3000/users/login', {
+        const response = await fetch('https://dream-furniture-api-backend.onrender.com/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataBody),
         });
 
-        const data = await response.json();//הוצאה של הנתונים
-        return data; // מחזיר את הנתונים אם יש צורך
+        const data = await response.json()
+        return data
     }
     catch (error) {
         console.error('Error logging in:', error);
@@ -32,14 +32,14 @@ export const logIn = async (dataBody) => {
 };
 export const signUp = async (dataBody) => {
     try {
-        const response = await fetch(`http://localhost:3000/users/add`, {
+        const response = await fetch(`https://dream-furniture-api-backend.onrender.com/users/add`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataBody),
         });
 
         const data = await response.json();
-        return data; // מחזיר את הנתונים אם יש צורך
+        return data; 
     } catch (error) {
         console.error('Error signing up:', error);
         throw error; 
@@ -52,7 +52,7 @@ export const saveCart = async (dataBody) => {
         token: token ? 'exists' : 'missing',
         data: dataBody
     });
-    try {const response = await fetch(`http://localhost:3000/users/cart/add`, {
+    try {const response = await fetch(`https://dream-furniture-api-backend.onrender.com/users/cart/add`, {
             method: "POST",
             headers: { 
                 'Authorization': `Bearer ${token}`,
@@ -79,7 +79,7 @@ export const saveCart = async (dataBody) => {
 export const getCart=async()=>{
     const token=localStorage.getItem('jwtToken');
 
-    const response=await fetch(`http://localhost:3000/users/cart`,{
+    const response=await fetch(`https://dream-furniture-api-backend.onrender.com/users/cart`,{
         headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' }
     })
     const data=await response.json();
@@ -95,7 +95,7 @@ export const getCart=async()=>{
 export const removeFromCart=async(id)=>{
     const token=localStorage.getItem('jwtToken');
 
-    const response= await fetch(`http://localhost:3000/users/${id}`,{
+    const response= await fetch(`https://dream-furniture-api-backend.onrender.com/users/${id}`,{
     method:"DELETE",
     headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' }
     })
@@ -112,7 +112,7 @@ export const removeFromCart=async(id)=>{
 
 export const decreaseCartItemQuantity= async(dataBody)=>{
     const token=localStorage.getItem('jwtToken');
-    const response=await fetch(`http://localhost:3000/users/`,{
+    const response=await fetch(`https://dream-furniture-api-backend.onrender.com/users/`,{
     method:"DELETE",
     headers:{'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' },
     body: JSON.stringify(dataBody),

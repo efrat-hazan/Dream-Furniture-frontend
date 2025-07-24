@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 
     export const fetchItems = async (categoryId) => {
-    const response = await fetch(`http://localhost:3000/products/${categoryId}`);
+    const response = await fetch(`https://dream-furniture-api-backend.onrender.com/products/${categoryId}`);
     const data = await response.json();
     console.log('then', data);
     return data.products; // מחזירים את המוצרים
@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom"
 
     export const getByItemId= async (id)=>{
 
-      const response= await fetch(`http://localhost:3000/products/product/${id}`)
+      const response= await fetch(`https://dream-furniture-api-backend.onrender.com/products/product/${id}`)
       const data= await response.json();
       
       console.log('then getByItemId',data);
@@ -29,7 +29,7 @@ import { useParams } from "react-router-dom"
         formData.append("image", product.image); 
         const token = localStorage.getItem('jwtToken');
         try{
-        const response=await fetch('http://localhost:3000/products/', {
+        const response=await fetch('https://dream-furniture-api-backend.onrender.com/products/', {
             method: 'POST',
             headers: { 
                 'Authorization': `Bearer ${token}`

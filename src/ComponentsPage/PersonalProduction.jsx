@@ -77,7 +77,7 @@ export default function PersonalProduction() {
         <Grid item xs={12} size={6} md={6}  sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 3 }}>
           <Box
             component="img"
-            src={`http://localhost:3000${item.imageUrl}`}
+            src={`https://dream-furniture-api-backend.onrender.com${item.imageUrl}`}
             alt={item.name}
             sx={{
               width: '100%',

@@ -6,7 +6,7 @@ export const getList = async () => {
 
     let categories;
     try {
-        const response = await fetch(`http://localhost:3000/categories/`);
+        const response = await fetch(`https://dream-furniture-api-backend.onrender.com/categories/`);
         const data = await response.json();
         console.log('then', data);
         categories = data.cate;
