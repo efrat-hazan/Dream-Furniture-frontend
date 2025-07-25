@@ -31,7 +31,7 @@ export default function PersonalCreation() {
          </Grid>
          <Grid size={6}>
            <center> <div className='imgRight'>
-            <img className='img' src="src/images/global/imgText2.jpg" alt="" />
+            <img className='img' src="/images/global/imgText2.jpg" alt="" />
             </div></center>
          </Grid>
       </Grid>
@@ -39,7 +39,7 @@ export default function PersonalCreation() {
       <Grid container spacing={2}>
          <Grid size={6}>
             <center><div className='imgLeft'>
-               <img  src="src/images/global/imgText1.jpg" alt="" />
+               <img  src="/images/global/imgText1.jpg" alt="" />
             </div></center>
          </Grid>
          <Grid size={6}>
@@ -60,7 +60,7 @@ export default function PersonalCreation() {
          </Grid>
          <Grid size={6} >
             <center><div className='imgRight'>
-               <img  src="src/images/global/imgText3.jpg" alt="" />
+               <img  src="/images/global/imgText3.jpg" alt="" />
             </div></center>
          </Grid>
       </Grid>
