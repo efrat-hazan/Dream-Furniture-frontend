@@ -9,7 +9,7 @@ export default function Header() {
       <header>
         {categories.map((category) => (
           <NavLink key={category.id} to={category.path} className="category-link">
-            <img src={"src/images/"+category.icon} alt="" className='iconsForHeader' />
+            <img src={"/images/"+category.icon} alt="" className='iconsForHeader' />
             {category.name}
           </NavLink>  ))}
       </header>

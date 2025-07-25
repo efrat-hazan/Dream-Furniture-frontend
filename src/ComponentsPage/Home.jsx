@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
     <div>
-      <img className='imgHome' src="src/images/global/home.jpg" alt="page-img-home" />
+      <img className='imgHome' src="images/global/home.jpg" alt="page-img-home" />
       <br /><br />
       
       <div className='container'>

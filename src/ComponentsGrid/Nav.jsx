@@ -32,13 +32,13 @@ export default function Nav() {
               type="search" variant="standard" onChange={(e) => setSearchQuery(e.target.value)} />
             </form>
           </div> 
-          <center> <NavLink to='/'><img className='imageLogo' src="src/images/global/logo2.png" alt="Logo" /></NavLink></center>  
+          <center> <NavLink to='/'><img className='imageLogo' src="/images/global/logo2.png" alt="Logo" /></NavLink></center>  
         
           <div className="nav-icons-container"> {/*link to manager and name for user*/}         
             {ro=='manager'&&<NavLink to='/adminDashboard' >DASHBOARD</NavLink>}
             <p>{userName==""?"לא מחובר":userName}</p>
-            <NavLink to='/logIn'><img className="nav-icons" src="src/images/global/person.svg" alt="person" /></NavLink>
-            <NavLink to='/cart'><img className="nav-icons" src="src/images/global/shopping_cart.svg" alt="cart" /></NavLink>       
+            <NavLink to='/logIn'><img className="nav-icons" src="/images/global/person.svg" alt="person" /></NavLink>
+            <NavLink to='/cart'><img className="nav-icons" src="/images/global/shopping_cart.svg" alt="cart" /></NavLink>       
           </div>
         </div>
       </nav>

@@ -21,9 +21,9 @@ export default function Footer() {
           <Grid container spacing={2}>
               <Grid 
                 item container sx={6}
-                direction="column"     // גריד אנכי
-                spacing={2}           // מרווח בין האלמנטים
-                alignItems="center"   // מירכוז אופקי
+                direction="column"     
+                spacing={2}     
+                alignItems="center"   
               >
                 <Grid item>
                 <NavLink className='navLink' to='/about' >אודות</NavLink><br />
