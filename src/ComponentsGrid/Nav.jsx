@@ -7,14 +7,13 @@ import { TextField } from '@mui/material';
 
 export default function Nav() {
   const [searchQuery, setSearchQuery] = useState('');//for search
-  const [role,setrole]=useState(''); //for role if is manager
-  const ro=localStorage.getItem('role');
-
-  if(ro==='maneger'){
-    setrole('maneger');
-  }   
   const navigate = useNavigate();
   const userName=useSelector(state=>state.userName.name);//Getting the name from redux
+  
+  // בדיקה דינמית של תפקיד המנהל
+  const role = localStorage.getItem('role');
+  const token = localStorage.getItem('jwtToken');
+  const isManager = role === 'manager' && token && userName;
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -35,8 +34,8 @@ export default function Nav() {
           <center> <NavLink to='/'><img className='imageLogo' src="/images/global/logo2.png" alt="Logo" /></NavLink></center>  
         
           <div className="nav-icons-container"> {/*link to manager and name for user*/}         
-            {ro=='manager'&&<NavLink to='/adminDashboard' >DASHBOARD</NavLink>}
-            <p>{userName==""?"לא מחובר":userName}</p>
+            {isManager && <NavLink to='/adminDashboard' >DASHBOARD</NavLink>}
+            <p>{userName===""?"לא מחובר":userName}</p>
             <NavLink to='/logIn'><img className="nav-icons" src="/images/global/person.svg" alt="person" /></NavLink>
             <NavLink to='/cart'><img className="nav-icons" src="/images/global/shopping_cart.svg" alt="cart" /></NavLink>       
           </div>

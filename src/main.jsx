@@ -8,6 +8,9 @@ import './index.css'
 import App from './App.jsx'
 // import ScrollToTop from './ComponentsOther/ScrollToTop.jsx'
 
+// הוספת store ל-window כדי שנוכל לגשת אליו מ-tokenManager
+window.store = store;
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>

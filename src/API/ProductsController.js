@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import { checkTokenExpiry } from '../utils/tokenManager'
 
     export const fetchItems = async (categoryId) => {
     const response = await fetch(`https://dream-furniture-api-backend.onrender.com/products/${categoryId}`);
@@ -18,6 +19,11 @@ import { useParams } from "react-router-dom"
 
     export const addProduct =async (product) => {
         console.log("I'm hear");
+        
+        // בדיקת תוקף הטוקן לפני הקריאה
+        if (!checkTokenExpiry()) {
+            throw new Error('הטוקן פג תוקף, אנא התחבר מחדש');
+        }
         
         const formData = new FormData();
         formData.append("productId", product.productId);

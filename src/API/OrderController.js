@@ -1,5 +1,10 @@
+import { checkTokenExpiry } from '../utils/tokenManager'
 
 export const addOrder=async () => {
+   // בדיקת תוקף הטוקן
+   if (!checkTokenExpiry()) {
+       throw new Error('הטוקן פג תוקף, אנא התחבר מחדש');
+   }
    
    const token = localStorage.getItem('jwtToken');
    try{

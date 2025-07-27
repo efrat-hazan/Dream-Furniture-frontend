@@ -1,5 +1,9 @@
 
 import { RouterProvider,createBrowserRouter,} from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { setUserName } from './Store/slices/userName'
+import { checkTokenExpiry } from './utils/tokenManager'
 import Home from './ComponentsPage/Home'
 import About from './ComponentsPage/About'
 import Products from './ComponentsPage/Products'
@@ -21,6 +25,17 @@ import ReturnPolicy from './ComponentsPage/ReturnPolicy.jsx'
 import PrivacyPolicy from './ComponentsPage/PrivacyPolicy.jsx'
 
 function App() {
+  const dispatch = useDispatch();
+  
+  // בדיקת תוקף הטוקן בכל טעינה של האפליקציה
+  useEffect(() => {
+    const isTokenValid = checkTokenExpiry();
+    if (!isTokenValid) {
+      // אם הטוקן פג תוקף, נקה גם את Redux
+      dispatch(setUserName(''));
+    }
+  }, [dispatch]);
+
   const router=createBrowserRouter([
     {
       path:'/',

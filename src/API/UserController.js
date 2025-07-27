@@ -1,5 +1,10 @@
+import { checkTokenExpiry } from '../utils/tokenManager'
 
 export const getAllUsers=async()=>{
+    // בדיקת תוקף הטוקן
+    if (!checkTokenExpiry()) {
+        throw new Error('הטוקן פג תוקף, אנא התחבר מחדש');
+    }
     const token=localStorage.getItem('jwtToken');
 
     const response=await fetch(`https://dream-furniture-api-backend.onrender.com/users/`,{
@@ -47,6 +52,10 @@ export const signUp = async (dataBody) => {
 };
 
 export const saveCart = async (dataBody) => {
+    // בדיקת תוקף הטוקן
+    if (!checkTokenExpiry()) {
+        throw new Error('הטוקן פג תוקף, אנא התחבר מחדש');
+    }
     const token = localStorage.getItem('jwtToken');
     console.log('Sending to server:', {
         token: token ? 'exists' : 'missing',

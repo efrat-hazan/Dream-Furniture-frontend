@@ -6,13 +6,25 @@ import {
 import { getAllUsers } from '../API/UserController';
 import { getAllOrders } from '../API/OrderController';
 import Addproduct from '../ComponentsOther/Addproduct';
+import { checkTokenExpiry } from '../utils/tokenManager';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminDashboard() {
+  const navigate = useNavigate();
   const [openDialog, setOpenDialog] = useState(null); // null | 'customers' | 'orders' | 'addProduct'
   const [users, setUsers] = useState([]);
   const [orders, setOrders] = useState([]);   
   const [numbers, setNumbers] = useState(0)   
   const handleClose = () => setOpenDialog(null);
+  
+  // בדיקת טוקן בכניסה לדף
+  useEffect(() => {
+    if (!checkTokenExpiry()) {
+      alert('הטוקן פג תוקף, אנא התחבר מחדש');
+      navigate('/logIn/log');
+      return;
+    }
+  }, [navigate]);
   const primary = 'var(--primary-color)';
   const secondary = 'var(--secondary-color)';
   const stylesx={

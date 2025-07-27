@@ -47,7 +47,7 @@ export default function Products(props) {
   return (
     <>
     <div className='divImgForProducts'>
-    <img className='imgStartPage' src={"src/images/" + (category ? category.img : '')} alt="" />
+    <img className='imgStartPage' src={"/images/" + (category ? category.img : '')} alt="" />
    <span className='spanForProducts' > {category.name+" | קולקציה 2025"} </span>
     </div> <br /><br />
     <div className='allProducts'>

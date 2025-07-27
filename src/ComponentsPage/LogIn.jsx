@@ -4,7 +4,8 @@ import '../styles/logIn.css'
 import { TextField, Box, Button, Tooltip, Alert, Snackbar } from '@mui/material'
 import { logIn, signUp } from '../API/UserController'
 import { setUserName } from '../Store/slices/userName'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { saveToken, clearUserData } from '../utils/tokenManager'
 
 const st={backgroundColor: 'var(--secondary-color)',//For the buttons
   color: 'var(--primary-color)',
@@ -35,8 +36,11 @@ export  function LogIn() {
 //Options component
 export function Ops()
 {
-   const n= localStorage.getItem("user")//Whether the user is logged in or not
-   const [ifUser, setIfUser]=useState(n?true:false)
+   const userName = useSelector(state => state.userName.name); // שימוש ב-Redux
+   const token = localStorage.getItem('jwtToken');
+   
+   // בדיקה אם המשתמש מחובר לפי Redux וטוקן
+   const ifUser = userName && userName !== "" && token;
    return(
       <>
           {ifUser ? (
@@ -66,21 +70,20 @@ export function Log()
     };
    const handleSubmit = async (e) => {
       e.preventDefault(); 
-      const data= await logIn(dataBody);
       try{
-         localStorage.setItem('jwtToken', data.token);//Token's income
-         console.log("token"+data.token);
-         const userNa=dataBody.name;
-         localStorage.setItem('user',userNa);
-         localStorage.setItem("role",data.user.role);
+         const data= await logIn(dataBody);
+         // שמירת טוקן עם זמן התחברות
+         saveToken(data.token, data.user.role, dataBody.name);
+         localStorage.setItem('user', dataBody.name);
          
-         dispatch(setUserName(userNa))//redux הכנסה ל 
+         dispatch(setUserName(dataBody.name))//redux הכנסה ל 
          alert(data.message);
          navigate("/");
       }
-      catch
+      catch(error)
       {
-         error(data.message);
+         console.error('Login error:', error);
+         alert('שגיאה בהתחברות');
       }
      
     }
@@ -151,9 +154,8 @@ export function Disengagement()
    const handleLogout = () => {
       const ans = confirm("תרצה לנתק את חשבונך מהאתר?");
       if (ans) {
+         clearUserData();
          localStorage.removeItem('user');
-         localStorage.removeItem('jwtToken');
-         localStorage.removeItem('role');
          dispatch(setUserName(""))
          setOpen(true);
          setTimeout(() => {
