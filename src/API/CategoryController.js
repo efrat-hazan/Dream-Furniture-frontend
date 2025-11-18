@@ -5,8 +5,9 @@
 export const getList = async () => {
 
     let categories;
+        counsole.log('https://dream-furniture-api-backend.onrender.com/categories/');
+
     try {
-        counsole.log(`https://dream-furniture-api-backend.onrender.com/categories/`);
         const response = await fetch(`https://dream-furniture-api-backend.onrender.com/categories/`);
         const data = await response.json();
         console.log('then', data);
