@@ -1,5 +1,7 @@
 # Dream Furniture - Online Furniture Store (Frontend)
 
+🌐 **Live Demo**: [dream-furniture-frontend.onrender.com](https://dream-furniture-frontend.onrender.com/)
+
 Dream Furniture is a modern, responsive and user-friendly e-commerce website for browsing and purchasing furniture.
 This project focuses on the **Frontend** side using **React**, with state management using **Redux Toolkit** and **React Router** for navigation.
 
